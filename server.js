@@ -22,6 +22,11 @@ app.use(express.json());
 // DB Config:
 const db = config.get("mongoURI");
 
+// Passport Middleware:
+app.use(passport.initialize());
+// Passport Config:
+require("./config/passport.js")(passport);
+
 // Routes:
 // Test route:
 app.get('/test', (req, res) => res.json({ success: 'APi Works!' }));
